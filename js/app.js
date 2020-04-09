@@ -1,6 +1,7 @@
 // codigo de funcionalidad
-
+import { API }  from './api.js';
 import * as UI from './interfaz.js';
+
 
 UI.formularioBuscar.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -20,5 +21,10 @@ UI.formularioBuscar.addEventListener('submit', (e) => {
         }, 3000);
     } else {
         // formulario se completo, realizar consulta en API
+        const api = new API(artista, cancion);
+        api.consultarAPI()
+            .then(data => {
+                console.log(data);
+            })
     }
 })
